@@ -1,16 +1,10 @@
  <div id="top"></div>
  
- ## 使用技術一覧
- 
- <!-- フロントエンドのフレームワーク一覧 -->
+##　記録
 
-  <img src="https://img.shields.io/badge/-TypeScript-3178C6.svg?logo=TypeScript&style=for-the-badge&color=black">
-  <img src="https://img.shields.io/badge/-React-61DAFB.svg?logo=React&style=for-the-badge&color=black">
-  <img src="https://img.shields.io/badge/-Node.js-339933.svg?logo=Node.js&style=for-the-badge&color=black">
-  <img src="https://img.shields.io/badge/-TailwindCSS-38B2AC.svg?logo=Tailwind CSS&style=for-the-badge&color=black">
-
-| 言語・フレームワーク | バージョン |
-| -------------------- | ---------- |
-| Node.js              | 22.10.0    |
-| React                | 18.3.1     |
-| TailwindCSS          | 3.4.13     |
+- **2024/11/16**:リポジトリ作成。
+・Tailwindの使い方から学ぶことになった。ダークモード
+・Next.js次に使ってみたい
+・content: ['./src/**/*.{html,js,jsx,ts,tsx}'],ここの部分で全部のファイルパスを追加。初めて知った。
+・Tailwindの導入で悩んでる。
+・１時間くらい調べた後、導入できた。ClassをClassNameで記載すればいいだけだった。distフォルダはこの位置でいいのか疑問。
