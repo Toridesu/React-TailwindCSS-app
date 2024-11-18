@@ -3,16 +3,18 @@
 ##　記録
 
 - **2024/11/16**:リポジトリ作成。
-・Tailwindの使い方から学ぶことになった。ダークモード
-・Next.js次に使ってみたい
-・content: ['./src/**/*.{html,js,jsx,ts,tsx}'],ここの部分で全部のファイルパスを追加。初めて知った。
-・Tailwindの導入で悩んでる。
-・１時間くらい調べた後、導入できた。ClassをClassNameで記載すればいいだけだった。distフォルダはこの位置でいいのか疑問。
+  ・Tailwindの使い方から学ぶことになった。ダークモード
+  ・Next.js次に使ってみたい
+  ・content: ['./src/**/*.{html,js,jsx,ts,tsx}'],ここの部分で全部のファイルパスを追加。初めて知った。
+  ・Tailwindの導入で悩んでる。
+  ・１時間くらい調べた後、導入できた。ClassをClassNameで記載すればいいだけだった。distフォルダはこの位置でいいのか疑問。
 
-- **2024/11/17**:開発開始。18:30 
-・TailWindCSS便利だとは感じるが、コンポーネントのようにまとめれないかと思い使い方を検索中。
-・TailWindCSSの拡張機能を追加。 npm install -D prettier prettier-plugin-tailwindcss
-・prettierプラグインもあった為、.prettierrcを作成し追加。ついでに落ちていたPrettierのおすすめ設定を追加。
-・とりあえず入れてみたができているかよくわかってない。.prettierrcの場所もここでいいのか？ →AIに聞いたら合ってた。
-30m
-30m 19:58
+- **2024/11/17**:開発開始。18:30 ~ 21:20 途中休憩 Total:2h
+  ・TailWindCSS便利だとは感じるが、コンポーネントのようにまとめれないかと思い使い方を検索中。
+  ・TailWindCSSの拡張機能を追加。 npm install -D prettier prettier-plugin-tailwindcss
+  ・prettierプラグインもあった為、.prettierrcを作成し追加。ついでに落ちていたPrettierのおすすめ設定を追加。
+  ・とりあえず入れてみたができているかよくわかってない。.prettierrcの場所もここでいいのか？ →AIに聞いたら合ってた。
+
+- **2024/11/18**:Headerから開始。1700 ~    1h30m
+・AIに厳しめに意見を貰いつつ、TailWindのスタイルを当てている。
+・モバイルファースト意識

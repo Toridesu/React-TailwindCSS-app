@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <div className="flex min-h-screen items-center justify-center bg-gray-100 text-gray-800">
+        <div className=" bg-gray-100 text-gray-800">
           <Router />
         </div>
       </BrowserRouter>
