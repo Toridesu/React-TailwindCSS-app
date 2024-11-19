@@ -1,16 +1,27 @@
-import { FC, memo } from 'react';
-import { useState } from 'react';
-import { EyeIcon, EyeOffIcon, LockIcon } from 'lucide-react';
+import React, { FC, memo, useState } from 'react';
+import { LockIcon } from 'lucide-react';
+import { FormInput } from '../molecule/FormInput';
+import { PasswordInput } from '../molecule/PasswordInput';
+import { LoginUtilities } from '../molecule/LoginUtilities';
 
-export const Login: FC = memo(() => {
+// Separate type definitions
+interface LoginCredentials {
+  email: string;
+  password: string;
+}
+
+interface LoginProps {
+  onLogin?: (credentials: LoginCredentials) => void;
+}
+
+// Main Login Component
+export const Login: FC<LoginProps> = memo(({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log('Login attempted with:', email, password);
+    onLogin?.({ email, password });
   };
 
   return (
@@ -24,65 +35,16 @@ export const Login: FC = memo(() => {
           </div>
           <h2 className="mb-8 text-center text-3xl font-bold text-gray-800">Welcome Back</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="email" className="mb-2 block text-sm font-medium text-gray-700">
-                Email Address
-              </label>
-              <input
-                id="email"
-                type="email"
-                placeholder="you@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-800"
-              />
-            </div>
-            <div>
-              <label htmlFor="password" className="mb-2 block text-sm font-medium text-gray-700">
-                Password
-              </label>
-              <div className="relative">
-                <input
-                  id="password"
-                  type={showPassword ? 'text' : 'password'}
-                  placeholder="••••••••"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  className="w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-800"
-                />
-                <button
-                  type="button"
-                  className="absolute inset-y-0 right-0 flex items-center pr-3"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? (
-                    <EyeOffIcon className="h-5 w-5 text-gray-400" />
-                  ) : (
-                    <EyeIcon className="h-5 w-5 text-gray-400" />
-                  )}
-                </button>
-              </div>
-            </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 rounded border-gray-300 text-gray-900 focus:ring-gray-800"
-                />
-                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-700">
-                  Remember me
-                </label>
-              </div>
-              <div className="text-sm">
-                <a href="/" className="font-medium text-gray-700 hover:text-gray-900">
-                  Forgot your password?
-                </a>
-              </div>
-            </div>
+            <FormInput
+              type="email"
+              id="email"
+              label="Email Address"
+              value={email}
+              onChange={setEmail}
+              placeholder="you@example.com"
+            />
+            <PasswordInput value={password} onChange={setPassword} />
+            <LoginUtilities />
             <div>
               <button
                 type="submit"
@@ -105,3 +67,5 @@ export const Login: FC = memo(() => {
     </div>
   );
 });
+
+export default Login;

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { MobileMenuButton } from '../../atom/MobileMenuButton';
-import { Navigation } from '../../molecule/Navigation';
+import { MobileMenuButton } from '../atom/MobileMenuButton';
+import { Navigation } from '../molecule/Navigation';
 
 interface HeaderProps {
   className?: string;
