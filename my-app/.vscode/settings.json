@@ -1,3 +1,11 @@
 {
-  "cSpell.words": ["lucide", "usermanagement"]
+  "cSpell.words": ["lucide", "shadcn", "usermanagement"],
+  "cSpell.customDictionaries": {
+    "custom-dictionary-workspace": {
+      "name": "custom-dictionary-workspace",
+      "path": "${workspaceFolder:my-app}/.cspell/custom-dictionary-workspace.txt",
+      "addWords": true,
+      "scope": "workspace"
+    }
+  }
 }
