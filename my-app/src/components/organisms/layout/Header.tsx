@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Menu } from 'lucide-react';
+import { MobileMenuButton } from '../../atom/MobileMenuButton';
+import { Navigation } from '../../molecule/Navigation';
 
 interface HeaderProps {
   className?: string;
@@ -8,8 +9,19 @@ interface HeaderProps {
 export const Header = ({ className = '' }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // メニュー開閉時のスクロール制御
+  const toggleMenu = () => {
+    const body = document.body;
+    if (!isMenuOpen) {
+      body.style.overflow = 'hidden';
+    } else {
+      body.style.overflow = '';
+    }
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <header className={`bg-teal-500 ${className}`}>
+    <header className={`relative bg-teal-500 ${className}`}>
       <div className="flex items-center p-4 md:p-5">
         <a
           href="/"
@@ -19,40 +31,17 @@ export const Header = ({ className = '' }: HeaderProps) => {
           ユーザー管理アプリ
         </a>
 
-        {/* Navigation */}
-        <nav
-          id="primary-navigation"
-          className={` ${isMenuOpen ? 'block' : 'hidden'} absolute left-0 top-full w-full md:relative md:left-auto md:top-auto md:block md:w-auto`}
-          aria-label="メインナビゲーション"
-        >
-          <div className="flex flex-col items-start p-4 md:flex-row md:items-center md:p-0">
-            <a
-              href="/users"
-              className="w-full px-4 py-2 text-sm text-gray-50 hover:underline md:w-auto md:py-0"
-            >
-              ユーザ一覧
-            </a>
-            <a
-              href="/settings"
-              className="w-full px-4 py-2 text-sm text-gray-50 hover:underline md:w-auto md:py-0"
-            >
-              設定
-            </a>
-          </div>
-        </nav>
+        {/* 背景オーバーレイ */}
+        {isMenuOpen && (
+          <div
+            className="fixed inset-0 bg-black/50 md:hidden"
+            onClick={toggleMenu}
+            aria-hidden="true"
+          />
+        )}
 
-        {/* Mobile menu button */}
-        <button
-          className="md:hidden text-gray-50 p-2 ml-auto"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-expanded={isMenuOpen}
-          aria-controls="primary-navigation"
-          aria-label="メインメニュー"
-          
-        >
-          <Menu size={24} />
-        </button>
-
+        <Navigation isMenuOpen={isMenuOpen} />
+        <MobileMenuButton isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
       </div>
     </header>
   );
