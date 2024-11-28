@@ -22,6 +22,7 @@ export const Login: FC<LoginProps> = memo(({ onLogin }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onLogin?.({ email, password });
+    window.location.href = '/usermanagement';
   };
 
   return (
@@ -69,3 +70,4 @@ export const Login: FC<LoginProps> = memo(({ onLogin }) => {
 });
 
 export default Login;
+
